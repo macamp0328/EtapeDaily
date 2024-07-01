@@ -1,0 +1,20 @@
+{
+    "image": "mcr.microsoft.com/vscode/devcontainers/python:3.9",
+    "customizations": {
+      "vscode": {
+        "settings": {
+          "terminal.integrated.shell.linux": "/bin/bash",
+          "python.pythonPath": "/usr/local/bin/python"
+        },
+        "extensions": [
+            "ms-python.python"
+          ]
+      }
+    },
+
+    "postCreateCommand": "pip install -r requirements.txt",
+    "forwardPorts": [],
+    "mounts": [],
+    "remoteUser": "vscode"
+  }
+  
