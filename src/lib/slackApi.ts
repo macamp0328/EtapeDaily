@@ -1,15 +1,15 @@
-// src/lib/slackApi.ts
-
 import { WebClient } from '@slack/web-api';
 
-const token = process.env.SLACK_BOT_TOKEN;  // Slack Bot OAuth token
+const token = process.env.SLACK_BOT_TOKEN;
+
 const webClient = new WebClient(token);
 
-export async function sendDirectMessage(userId: string, message: string) {
+export async function sendDirectMessage(userId: string, message: any) {
     try {
         const response = await webClient.chat.postMessage({
             channel: userId,
-            text: message
+            text: 'Tour de France Stage Preview',  // Required for Slack API, but blocks will override it
+            blocks: message.blocks
         });
         console.log('Message sent successfully:', response.ts);
     } catch (error) {

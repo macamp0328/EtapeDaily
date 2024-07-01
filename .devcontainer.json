@@ -1,20 +1,21 @@
 {
-    "image": "mcr.microsoft.com/vscode/devcontainers/python:3.9",
-    "customizations": {
-      "vscode": {
-        "settings": {
-          "terminal.integrated.shell.linux": "/bin/bash",
-          "python.pythonPath": "/usr/local/bin/python"
-        },
+  "image": "mcr.microsoft.com/vscode/devcontainers/universal:linux",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
         "extensions": [
-            "ms-python.python"
-          ]
+          "dbaeumer.vscode-eslint",
+          "esbenp.prettier-vscode",
+          "ms-python.python",
+          "davidanson.vscode-markdownlint",
+          "github.copilot"
+        ]
       }
-    },
-
-    "postCreateCommand": "pip install -r requirements.txt",
-    "forwardPorts": [],
-    "mounts": [],
-    "remoteUser": "vscode"
-  }
-  
+    }
+  },
+  "postCreateCommand": "apt-get update && python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt",
+  "forwardPorts": [],
+  "mounts": [],
+  "remoteUser": "root"
+}

@@ -1,1 +1,1 @@
-procyclingstats==0.2.0
+procyclingstats
